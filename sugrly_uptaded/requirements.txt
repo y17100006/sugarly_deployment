@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+sqlalchemy
+asyncpg
+passlib[bcrypt]
+python-jose
+python-multipart
+email-validator
+google-generativeai
+httpx
+Pillow
+SpeechRecognition
+pydub
+

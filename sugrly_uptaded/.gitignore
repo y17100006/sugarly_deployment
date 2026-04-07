@@ -1,0 +1,29 @@
+# Python virtual environment
+env/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Environment variables (ALWAYS IGNORE FOR SECURITY)
+.env
+
+# Database files (ALLOWING food_database.db based on user request)
+# food_database.db
+*.sqlite
+*.db
+
+# Local uploads
+uploads/
+
+# OS-specific files
+Desktop.ini
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Flutter folder (DO NOT UPLOAD TO RAILWAY BACKEND)
+flutter/
