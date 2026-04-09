@@ -123,7 +123,7 @@ Sugarly, your diabetes care consultant, always here to support your health journ
 API_KEY = settings.GEMINI_API_KEY or ""
 
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={API_KEY}"
-FALLBACK_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
+FALLBACK_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
 
 def call_api(url, full_user_message):
     data = {
