@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Optional
-
+import tempfile
 from app.models.database import get_db
 from app.models.models import User, FoodAnalysis
 from app.schemas.food import FoodAnalysisResponse
@@ -12,7 +12,7 @@ import shutil
 
 router = APIRouter(prefix="/food", tags=["food"])
 
-UPLOAD_DIR = "uploads"
+UPLOAD_DIR = os.path.join(tempfile.gettempdir(), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @router.post("/analyze", response_model=FoodAnalysisResponse)
