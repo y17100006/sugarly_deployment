@@ -1,6 +1,7 @@
 import os
 import shutil
 import uuid
+import tempfile
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -32,8 +33,11 @@ async def chat_with_assistant(
     
     if audio:
         try:
-            # Save uploaded audio file temporarily
-            tmp_path = f"tmp_{uuid.uuid4().hex}_{audio.filename}"
+            # Save uploaded audio file temporarily in system temp dir (compatible with Vercel / serverless)
+            temp_dir = tempfile.gettempdir()
+            safe_filename = os.path.basename(audio.filename or "recording.m4a")
+            tmp_path = os.path.join(temp_dir, f"tmp_{uuid.uuid4().hex}_{safe_filename}")
+            
             with open(tmp_path, "wb") as buffer:
                 shutil.copyfileobj(audio.file, buffer)
                 
