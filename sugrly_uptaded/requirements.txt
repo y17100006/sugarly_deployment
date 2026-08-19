@@ -12,4 +12,5 @@ httpx
 Pillow
 SpeechRecognition
 pydub
+langdetect
 
