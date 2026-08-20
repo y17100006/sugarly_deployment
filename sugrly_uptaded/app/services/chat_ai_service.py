@@ -33,10 +33,17 @@ def call_rag_api(url: str, user_query: str, user_data_text: str, detected_lang: 
     if not url:
         raise ValueError(f"RAG API URL for language '{detected_lang}' is not set in environment/config.")
 
-    payload = {
-        "query": user_query,
-        "user_data": user_data_text
-    }
+    if detected_lang == "en":
+        payload = {
+            "question": user_query,
+            "user_data": user_data_text,
+            "top_k": 6
+        }
+    else:
+        payload = {
+            "query": user_query,
+            "user_data": user_data_text
+        }
     
     headers = {"Content-Type": "application/json"}
     
