@@ -13,4 +13,4 @@ Pillow
 SpeechRecognition
 pydub
 langdetect
-
+greenlet
