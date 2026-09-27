@@ -35,7 +35,7 @@ def call_rag_api(url: str, user_query: str, user_data_text: str, detected_lang: 
 
     if detected_lang == "en":
         payload = {
-            "question": user_query,
+            "query": user_query,
             "user_data": user_data_text,
             "top_k": 6
         }
